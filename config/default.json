@@ -1,0 +1,4 @@
+{
+  "jwtPrivateKey": "process.env.PRIVATE_KEY",
+  "port": 5000
+}
