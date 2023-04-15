@@ -80,8 +80,12 @@ router.post('/', [
 //*Getting users Bookings by ID
 router.get('/booking/:userId', auth, async (req, res) => {
     try {
-        const userBooking = await ServiceRequest.find({ userId: req.params.userId });
-        res.status(200).send(userBooking)
+        if (req.user.isAdmin || req.user._id === req.params.userId) {
+            const userBooking = await ServiceRequest.find({ userId: req.params.userId });
+            res.status(200).send(userBooking);
+        } else {
+            res.status(403).send('Access Denied');
+        }
     } catch (error) {
         console.error('Error fetching user booking data:', error);
         res.status(500).json({ error: error.message });
