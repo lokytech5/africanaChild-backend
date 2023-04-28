@@ -19,7 +19,7 @@ app.use(express.json());
 //*using Cors
 const allowedOrigins = [
     'http://localhost:3000', // Replace 3000 with the port you are using for your React app during development
-    'https://africanachildphotography.com' // Replace with the URL of your deployed React app
+    'https://africanachildphotography.netlify.app' // Replace with the URL of your deployed React app
 ];
 
 app.use(cors({
